@@ -7,6 +7,11 @@ const Swal = require('sweetalert2');
 initFirebase();
 //STORE UNIQUE USER ID
 let unique_uid;
+//GET CMD TO CHECK APP IS RUNNING FOR THE FIRST TIME
+var cmd = process.argv[1];
+
+
+
 
 //TOGGLE LOGIN & SIGNUP FORM
 const changeForm = () => {
@@ -62,13 +67,14 @@ function logInUser(){
     //get form variables 
     var email= document.querySelector('#logInEmail').value;
     var password= document.querySelector('#logInPassword').value;
-
+    
     //validate form variables
     if(email == "" || password == ""){
         Swal.fire('Warning', 'Fill form correctly', 'warning');
         return;
     }
-
+    
+    
     //start loading
     document.querySelector('#loadingSvg').style.display='block';
     
@@ -174,7 +180,7 @@ function toggle_book_order_page(){
     '<div class="panel panel-default card-input" id="selectionArea">' +
     '<div class="panel-heading">The Possible World</div>' +
     '<div class="panel-body">' +
-    '<img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781501166150/the-possible-world-9781501166150_xlg.jpg" width="220" height="300" alt="" draggable="false" />' +
+    '<img src="./assets/book1.jpg" width="220" height="300" alt="" draggable="false" />' +
     '</div>' +
     '</div>' +
     '</label>' +
@@ -185,7 +191,7 @@ function toggle_book_order_page(){
     '<div class="panel panel-default card-input" id="selectionArea">' +
     '<div class="panel-heading">Humans</div>' +
     '<div class="panel-body">' +
-    '<img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1531861515l/40858227._SY475_.jpg" width="220" height="300" alt="" draggable="false" />' +
+    '<img src="./assets/book2.jpg" width="220" height="300" alt="" draggable="false" />' +
     '</div>' +
     '</div>' +
     '</label>' +
@@ -196,14 +202,14 @@ function toggle_book_order_page(){
     '<div class="panel panel-default card-input" id="selectionArea">' +
     '<div class="panel-heading">Atomic Habit</div>' +
     '<div class="panel-body">' +
-    '<img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1535115320l/40121378._SY475_.jpg" width="220" height="300" alt="" draggable="false" />' +
+    '<img src="./assets/book3.jpg" width="220" height="300" alt="" draggable="false" />' +
     '</div>' +
     '</div>' +
     '</label>' +
     '</div>' +
     '</div>' +
     '<div id="purchaseSection">' +
-    '<label for="fname" id="purchaserEmailLabel">Enter email to send downloadable link of book</label>' +
+    '<label for="fname" id="purchaserEmailLabel">Enter your email to receive downloadable link of the selected book</label>' +
     '<input type="email" id="purchaserEmail" name="fname" placeholder="****@gmail.com"><br><br>' +
     '<button type="button" id="purchaserBookButton" onclick="order_selected_book()">Order Book</button>' +
     '</div>' +
@@ -212,5 +218,7 @@ function toggle_book_order_page(){
 
 }
 
-//show info that app require internet starting 
-Swal.fire('Info', 'This app require internet connection', 'info');
+//IF APP IS RUNNING FOR THE FIRST TIME THEN SHOW THE REQUIREMENTS
+if (cmd == '--squirrel-firstrun') {
+    Swal.fire('This app require internet connection', '', 'info');
+}
