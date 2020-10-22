@@ -1,0 +1,34 @@
+{
+  "name": "casameds_books",
+  "version": "1.0.0",
+  "description": "A user personalized book app(responsive)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "repository": "",
+  "author": "Atiq Gauri <gauriatiq@gmail.com>",
+  "license": "MIT",
+  "build": {
+    "appId": "atiqgauri.casameds",
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "highestAvailable"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": true,
+      "artifactName": "atiqgauri-casameds-win32-v${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^10.1.4",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "firebase": "^7.24.0",
+    "sweetalert2": "^10.7.0"
+  }
+}

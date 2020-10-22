@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Casameds</title>
+    <!-- Firebase bundles -->
+    <script src="./node_modules/firebase/firebase-app.js"></script>
+    <script src="./node_modules/firebase/firebase-auth.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first 
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+      -->
+
+</head>
+<body>
+  <img src="./loading.svg" alt="" id="loadingSvg" draggable="false" />
+  <section class="bodySection" id="bodySection">
+    <p class="userID" id="userID"></p>
+    <div class="containerMain" id="containerMain">
+      <div class="user signInSection">
+        <div class="imageSection"><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781501166150/the-possible-world-9781501166150_xlg.jpg" alt="" draggable="false" /></div>
+        <div class="formSection">
+          <form action="" onsubmit="return false;">
+            <h2>Casameds Books </br>Log In</h2>
+            <input type="text" name="" placeholder="Username" id="logInEmail" />
+            <input type="password" name="" placeholder="Password" id="logInPassword" />
+            <input type="submit" name="" value="Login" onclick="logInUser()" id="loginButton" />
+            <p class="signup">
+              Don't have an account ?
+              <a href="#" onclick="changeForm();">Sign Up.</a>
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="user signUpSection">
+        <div class="formSection">
+          <form action="" onsubmit="return false;">
+            <h2>Casameds Books </br> Register</h2>
+            <input type="text" name="" placeholder="Username" />
+            <input type="email" name="" placeholder="Email Address" id="signUpEmail"/>
+            <input type="password" name="" placeholder="Create Password" id="signUpPassword" />
+            <input type="password" name="" placeholder="Confirm Password" id="signUpConfirm" />
+            <input type="submit" name="" value="Sign Up" onclick="signUpUser()" />
+            <p class="signup">
+              Already have an account ?
+              <a href="#" onclick="changeForm();">Sign in.</a>
+            </p>
+          </form>
+        </div>
+        <div class="imageSection"><img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781501166150/the-possible-world-9781501166150_xlg.jpg" alt="" draggable="false" /></div>
+      </div>
+    </div>
+  </section>
+    <script src="./renderer.js"></script>
+</body>
+</html>
